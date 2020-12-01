@@ -25,7 +25,7 @@ class Genre
     private $name;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime",options={"default":"CURRENT_TIMESTAMP"})
      */
     private $createdAt;
 
@@ -41,6 +41,7 @@ class Genre
 
     public function __construct()
     {
+        $this->createdAt=new \DateTime();
         $this->movies = new ArrayCollection();
     }
 

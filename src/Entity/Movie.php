@@ -41,12 +41,14 @@ class Movie
 
     /**
      * @ORM\OneToMany(targetEntity=Casting::class, mappedBy="movie", orphanRemoval=true)
+     * @ORM\OrderBy({"creditOrder"="ASC"})
      */
     private $castings;
 
     public function __construct()
     {
         $this->genres = new ArrayCollection();
+        $this->createdAt=new \DateTime();
         $this->castings = new ArrayCollection();
     }
 
