@@ -35,13 +35,13 @@ class Person
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Movie::class, mappedBy="persons")
+     * @ORM\OneToMany(targetEntity=Casting::class, mappedBy="person", orphanRemoval=true)
      */
-    private $movies;
+    private $castings;
 
     public function __construct()
     {
-        $this->movies = new ArrayCollection();
+        $this->castings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -85,28 +85,32 @@ class Person
         return $this;
     }
 
+
     /**
-     * @return Collection|Movie[]
+     * @return Collection|Casting[]
      */
-    public function getMovies(): Collection
+    public function getCastings(): Collection
     {
-        return $this->movies;
+        return $this->castings;
     }
 
-    public function addMovie(Movie $movie): self
+    public function addCasting(Casting $casting): self
     {
-        if (!$this->movies->contains($movie)) {
-            $this->movies[] = $movie;
-            $movie->addPerson($this);
+        if (!$this->castings->contains($casting)) {
+            $this->castings[] = $casting;
+            $casting->setPerson($this);
         }
 
         return $this;
     }
 
-    public function removeMovie(Movie $movie): self
+    public function removeCasting(Casting $casting): self
     {
-        if ($this->movies->removeElement($movie)) {
-            $movie->removePerson($this);
+        if ($this->castings->removeElement($casting)) {
+            // set the owning side to null (unless already changed)
+            if ($casting->getPerson() === $this) {
+                $casting->setPerson(null);
+            }
         }
 
         return $this;
