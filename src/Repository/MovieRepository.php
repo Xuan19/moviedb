@@ -19,6 +19,23 @@ class MovieRepository extends ServiceEntityRepository
         parent::__construct($registry, Movie::class);
     }
 
+    public function getMovieWithRelations(int $id)
+    {
+     $qb=$this->createQueryBuilder('m');
+
+     $qb
+        ->addSelect('g,c,p')
+        ->leftjoin('m.genres','g')
+        ->leftjoin('m.castings','c')
+        ->join('c.person','p')
+        ->where('m.id= :id')
+        ->setParameter('id',$id)
+     ;
+
+      return $qb->getQuery()->getOneOrNullResult();
+
+    }
+
     // /**
     //  * @return Movie[] Returns an array of Movie objects
     //  */
