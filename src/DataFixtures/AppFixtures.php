@@ -1,25 +1,21 @@
 <?php
 
-namespace App\Controller;
+namespace App\DataFixtures;
 
 use App\Entity\Casting;
 use App\Entity\Genre;
 use App\Entity\Movie;
 use App\Entity\Person;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Persistence\ObjectManager;
 
-class DevController extends AbstractController
+class AppFixtures extends Fixture
 {
-    /**
-     * Produits des fausse données
-     * 
-     * @Route("/dev/fakedata", name="dev_fake_data")
-     */
-    public function fakeData(EntityManagerInterface $em): Response
+    public function load(ObjectManager $em)
     {
+        // $product = new Product();
+        // $manager->persist($product);
+
         $genres=[];
         $persons=[];
         $movies=[];
@@ -144,6 +140,7 @@ class DevController extends AbstractController
             shuffle($genres);
             $currentMovie->addGenre($genres[0]);
         }
+        
         $currentMovie->addGenre($genres[1]);
 
         
@@ -155,11 +152,7 @@ class DevController extends AbstractController
             $currentCasting->setPerson($persons[0]);
             $currentCasting->setMovie($movies[0]);
         }
-       
-        // $em->flush();
-        
-        return $this->render('dev/index.html.twig', [
-            'controller_name' => 'DevController',
-        ]);
+
+        $em->flush();
     }
 }

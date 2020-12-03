@@ -53,6 +53,8 @@ class MovieController extends AbstractController
 
         
         $movie= $movieRepository->getMovieWithRelations($id);
+
+        // dd($movie);
         
         if($movie===null){
             throw $this->createNotFoundException('ce film n\'existe pas');

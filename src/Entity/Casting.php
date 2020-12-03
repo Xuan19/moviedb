@@ -28,13 +28,13 @@ class Casting
     private $creditOrder;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="castings")
+     * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="castings", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $person;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Movie::class, inversedBy="castings")
+     * @ORM\ManyToOne(targetEntity=Movie::class, inversedBy="castings",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $movie;

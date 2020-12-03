@@ -35,7 +35,7 @@ class Movie
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Genre::class, inversedBy="movies")
+     * @ORM\ManyToMany(targetEntity=Genre::class, inversedBy="movies", cascade={"persist"})
      */
     private $genres;
 
@@ -103,6 +103,13 @@ class Movie
 
     public function addGenre(Genre $genre): self
     {
+
+        //parce que le Populator de Faker est peu simplet, il n'exécute pas le contstructeur, on va initialiser la propriété $genres si elle est nulle
+        if($this->genres==null){
+            $this->genres=new ArrayCollection();
+        }
+        
+        
         if (!$this->genres->contains($genre)) {
             $this->genres[] = $genre;
         }
