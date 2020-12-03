@@ -40,6 +40,8 @@ class FakeWithPopulatorFixtures extends Fixture
 
         $inserted=$populator->execute();
 
+
+        //on obtiens tous les Movie et tous les Genres créés par le populator grâce à $inserted.
         $movies=$inserted['App\Entity\Movie'];
         $genres=$inserted['App\Entity\Genre'];
 

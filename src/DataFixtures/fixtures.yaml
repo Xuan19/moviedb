@@ -1,0 +1,19 @@
+App\Entity\Genre:
+    genre_{1..23}:
+        name (unique): '<movieGenre()>' 
+
+App\Entity\Person:
+    person_{1..40}:
+        name: '<firstname()> <lastname()>' 
+
+App\Entity\Movie:
+    movie_{1..20}:
+        title (unique): '<movieTitle()>' 
+        genres: '<numberBetween(1,3)>x @genre_*' 
+
+App\Entity\Casting:
+    casting_{1..70}:
+        role: '<firstname()>' 
+        creditOrder: '<numberBetween(1,200)>' 
+        person: '@person_*' 
+        movie: '@movie_*' 
