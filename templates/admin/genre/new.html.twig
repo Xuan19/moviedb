@@ -1,7 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GenreController!{% endblock %}
+{% block title %}Hello GenreController!
+{% endblock %}
 
 {% block body %}
-{{form(form)}}
+
+	{# {{form(form,{'method':'DELETE','attr': {'class': 'ma-classe-cool'}}) }} #}
+
+
+	{{form_start(form)}}
+
+    {{form_errors(form)}}
+
+	<div class="row">
+		<div class="col-2">
+			{{form_label(form.name)}}
+		</div>
+		<div class="col-3">
+			{{form_widget(form.name)}} {{form_errors(form.name)}}
+		</div>
+	</div>
+
+	{{form_row(form.movies)}}
+
+    <button type="submit">Envoyer</button>
+
+	{# Coucou
+	<input
+	type="text" name="genre[coucou]" id="genre_coucou"> #}
+	{# {'render_rest':false} #}
+	{{form_end(form)}}
+
 {% endblock %}
+
+
