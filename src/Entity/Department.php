@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\PersonRepository;
+use App\Repository\DepartmentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=PersonRepository::class)
+ * @ORM\Entity(repositoryClass=DepartmentRepository::class)
  */
-class Person
+class Department
 {
     /**
      * @ORM\Id
@@ -35,14 +35,14 @@ class Person
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Employment::class, mappedBy="person", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Job::class, mappedBy="department", orphanRemoval=true)
      */
-    private $employments;
+    private $jobs;
 
     public function __construct()
-    {
+    {   
         $this->createdAt=new \DateTime();
-        $this->employments = new ArrayCollection();
+        $this->jobs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,31 +86,30 @@ class Person
         return $this;
     }
 
-
     /**
-     * @return Collection|Employment[]
+     * @return Collection|Job[]
      */
-    public function getEmployments(): Collection
+    public function getJobs(): Collection
     {
-        return $this->employments;
+        return $this->jobs;
     }
 
-    public function addEmployment(Employment $employment): self
+    public function addJob(Job $job): self
     {
-        if (!$this->employments->contains($employment)) {
-            $this->employments[] = $employment;
-            $employment->setPerson($this);
+        if (!$this->jobs->contains($job)) {
+            $this->jobs[] = $job;
+            $job->setDepartment($this);
         }
 
         return $this;
     }
 
-    public function removeEmployment(Employment $employment): self
+    public function removeJob(Job $job): self
     {
-        if ($this->employments->removeElement($employment)) {
+        if ($this->jobs->removeElement($job)) {
             // set the owning side to null (unless already changed)
-            if ($employment->getPerson() === $this) {
-                $employment->setPerson(null);
+            if ($job->getDepartment() === $this) {
+                $job->setDepartment(null);
             }
         }
 

@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\PersonRepository;
+use App\Repository\JobRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=PersonRepository::class)
+ * @ORM\Entity(repositoryClass=JobRepository::class)
  */
-class Person
+class Job
 {
     /**
      * @ORM\Id
@@ -35,14 +35,20 @@ class Person
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Employment::class, mappedBy="person", orphanRemoval=true)
+     * @ORM\ManyToOne(targetEntity=Department::class, inversedBy="jobs")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $employments;
+    private $department;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CrewMember::class, mappedBy="job", orphanRemoval=true)
+     */
+    private $crewMembers;
 
     public function __construct()
-    {
+    {   
         $this->createdAt=new \DateTime();
-        $this->employments = new ArrayCollection();
+        $this->crewMembers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,31 +92,42 @@ class Person
         return $this;
     }
 
-
-    /**
-     * @return Collection|Employment[]
-     */
-    public function getEmployments(): Collection
+    public function getDepartment(): ?Department
     {
-        return $this->employments;
+        return $this->department;
     }
 
-    public function addEmployment(Employment $employment): self
+    public function setDepartment(?Department $department): self
     {
-        if (!$this->employments->contains($employment)) {
-            $this->employments[] = $employment;
-            $employment->setPerson($this);
+        $this->department = $department;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CrewMember[]
+     */
+    public function getCrewMembers(): Collection
+    {
+        return $this->crewMembers;
+    }
+
+    public function addCrewMember(CrewMember $crewMember): self
+    {
+        if (!$this->crewMembers->contains($crewMember)) {
+            $this->crewMembers[] = $crewMember;
+            $crewMember->setJob($this);
         }
 
         return $this;
     }
 
-    public function removeEmployment(Employment $employment): self
+    public function removeCrewMember(CrewMember $crewMember): self
     {
-        if ($this->employments->removeElement($employment)) {
+        if ($this->crewMembers->removeElement($crewMember)) {
             // set the owning side to null (unless already changed)
-            if ($employment->getPerson() === $this) {
-                $employment->setPerson(null);
+            if ($crewMember->getJob() === $this) {
+                $crewMember->setJob(null);
             }
         }
 

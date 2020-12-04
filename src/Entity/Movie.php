@@ -40,16 +40,15 @@ class Movie
     private $genres;
 
     /**
-     * @ORM\OneToMany(targetEntity=Casting::class, mappedBy="movie", orphanRemoval=true)
-     * @ORM\OrderBy({"creditOrder"="ASC"})
+     * @ORM\OneToMany(targetEntity=Employment::class, mappedBy="movie", orphanRemoval=true)
      */
-    private $castings;
+    private $employments;
 
     public function __construct()
     {
         $this->genres = new ArrayCollection();
         $this->createdAt=new \DateTime();
-        $this->castings = new ArrayCollection();
+        $this->employments = new ArrayCollection();
     }
 
     public function __toString()
@@ -130,29 +129,29 @@ class Movie
     }
 
     /**
-     * @return Collection|Casting[]
+     * @return Collection|Employment[]
      */
-    public function getCastings(): Collection
+    public function getEmployments(): Collection
     {
-        return $this->castings;
+        return $this->employments;
     }
 
-    public function addCasting(Casting $casting): self
+    public function addEmployment(Employment $employment): self
     {
-        if (!$this->castings->contains($casting)) {
-            $this->castings[] = $casting;
-            $casting->setMovie($this);
+        if (!$this->employments->contains($employment)) {
+            $this->employments[] = $employment;
+            $employment->setMovie($this);
         }
 
         return $this;
     }
 
-    public function removeCasting(Casting $casting): self
+    public function removeEmployment(Employment $employment): self
     {
-        if ($this->castings->removeElement($casting)) {
+        if ($this->employments->removeElement($employment)) {
             // set the owning side to null (unless already changed)
-            if ($casting->getMovie() === $this) {
-                $casting->setMovie(null);
+            if ($employment->getMovie() === $this) {
+                $employment->setMovie(null);
             }
         }
 

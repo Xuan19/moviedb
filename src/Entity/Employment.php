@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\CastingRepository;
+use App\Repository\EmploymentRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CastingRepository::class)
+ * @ORM\Entity(repositoryClass=EmploymentRepository::class)
+ * @ORM\InheritanceType("JOINED")
  */
-class Casting
+class Employment
 {
     /**
      * @ORM\Id
@@ -18,52 +19,57 @@ class Casting
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
-    private $role;
+    private $createdAt;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
-    private $creditOrder;
+    private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="castings", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="employments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $person;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Movie::class, inversedBy="castings",cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity=Movie::class, inversedBy="employments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $movie;
+
+    public function __construct()
+    {   
+        $this->createdAt=new \DateTime();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getRole(): ?string
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->role;
+        return $this->createdAt;
     }
 
-    public function setRole(string $role): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->role = $role;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getCreditOrder(): ?int
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->creditOrder;
+        return $this->updatedAt;
     }
 
-    public function setCreditOrder(?int $creditOrder): self
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
-        $this->creditOrder = $creditOrder;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
