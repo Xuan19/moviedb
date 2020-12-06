@@ -1,0 +1,54 @@
+{% extends "admin/base.html.twig" %}
+
+{% block body %}
+
+<div class="row">
+  <h1>Modifier un film</h1>
+</div>
+    
+
+	{{form_start(form)}}
+
+	{{form_row(form.title)}}
+
+	{{form_label(form.genres)}}
+
+	{% for genre in form.genres %}
+        
+		<div class="custom-control custom-checkbox">
+		
+	{{form_widget(genre,{
+		'attr':{'class':'custom-control-input'},
+		'label_attr':{'class':'custom-control-label'},
+	
+	})}}
+		</div>
+		
+	{% endfor %}
+
+	<button type="submit" class="btn btn-primary">Modifier</button>
+
+	{{form_end(form)}}
+{# 
+<div class="row">
+
+	<div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
+      <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+    </div>
+
+</div> #}
+
+
+	{# {{form_start(formDelete,{
+	    'action': path('admin_movie_delete',{'id':form.vars.data.id}),
+	    'method':'delete'
+	}) }} #}
+
+	{{form_start(formDelete)}}
+
+	{{form_widget(formDelete.deleteButton,{'attr':{'class':'btn-link'}}) }}
+
+	{{form_end(formDelete)}}
+
+{% endblock %}

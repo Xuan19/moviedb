@@ -2,10 +2,10 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Genre;
+use App\Entity\Movie;
 use App\Form\DeleteType;
-use App\Form\GenreType;
-use App\Repository\GenreRepository;
+use App\Form\MovieType;
+use App\Repository\MovieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -15,42 +15,45 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
-     * @Route("/admin/genre", name="admin_genre_")
+     * @Route("/admin/movie", name="admin_movie_")
      */
-class GenreController extends AbstractController
+class MovieController extends AbstractController
 {
     /**
      * @Route("/", name="browse")
      */
-    public function browse(GenreRepository $genreRepository): Response
+    public function browse(MovieRepository $movieRepository): Response
     {
         
-        return $this->render('admin/genre/browse.html.twig',[
-            'genres'=>$genreRepository->findAll(),
+        return $this->render('admin/movie/browse.html.twig',[
+            'movies'=>$movieRepository->findAll(),
         ]);
     }
+
 
     /**
      * @Route("/edit/{id}", name="edit", requirements={"id":"\d+"})
      */
 
-    public function edit(Genre $genre, Request $request): Response
+    public function edit(Movie $movie, Request $request): Response
     {
-        $form=$this->createForm(GenreType::class,$genre);
+        $form=$this->createForm(MovieType::class,$movie);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
-            $genre->setUpdatedAt(new \DateTime());
+            $movie->setUpdatedAt(new \DateTime());
 
             $em=$this->getDoctrine()->getManager();
 
             $em->flush();
+
+            return $this->redirectToRoute('admin_movie_browse');
         }
 
         // $formDelete=$this->createFormBuilder()
-        //                 ->setAction($this->generateUrl('admin_genre_delete',['id'=>$genre->getId()]))
+        //                 ->setAction($this->generateUrl('admin_Movie_delete',['id'=>$Movie->getId()]))
         //                 ->setMethod('DELETE')
         //                 ->add('deleteButton',SubmitType::class,[
         //                     'label'=>'Supprimer',
@@ -58,10 +61,10 @@ class GenreController extends AbstractController
         //                 ->getForm();
 
         $formDelete=$this->createForm(DeleteType::class,null, [
-            'action'=>$this->generateUrl('admin_genre_delete',['id'=>$genre->getId()])
+            'action'=>$this->generateUrl('admin_movie_delete',['id'=>$movie->getId()])
         ]);
 
-        return $this->render('admin/genre/edit.html.twig',[
+        return $this->render('admin/movie/edit.html.twig',[
 
             'form'=>$form->createView(),
 
@@ -76,32 +79,32 @@ class GenreController extends AbstractController
 
     public function add(Request $request): Response
     {
-        $genre=new Genre();
+        $movie=new Movie();
 
-        $form=$this->createForm(GenreType::class, $genre);
+        $form=$this->createForm(MovieType::class, $movie);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
             $em=$this->getDoctrine()->getManager();
-            $em->persist($genre);
+            $em->persist($movie);
             $em->flush();
 
-            return $this->redirectToRoute('admin_genre_browse');
+            return $this->redirectToRoute('admin_movie_browse');
         }
 
-        return $this->render('admin/genre/add.html.twig',[
+        return $this->render('admin/movie/add.html.twig',[
             'form'=>$form->createView(),
         ]);
        
     }
 
    /**
-     * @Route("/delete/{id}", name="delete", requirements={"id":"\d+"})
+     * @Route("/delete/{id}", name="delete", requirements={"id":"\d+"}, methods={"DELETE"})
      */
 
-    public function delete(EntityManagerInterface $em, Genre $genre, Request $request): Response
+    public function delete(EntityManagerInterface $em, Movie $movie, Request $request): Response
        {
 
             $formDelete=$this->createForm(DeleteType::class);
@@ -111,11 +114,12 @@ class GenreController extends AbstractController
             if($formDelete->isSubmitted() && $formDelete->isValid()){
     
                 // $em=$this->getDoctrine()->getManager();
-                $em->remove($genre);
+                $em->remove($movie);
+
                 $em->flush();
     
             }
             
-            return $this->redirectToRoute('admin_genre_browse');
+            return $this->redirectToRoute('admin_movie_browse');
     }
 }

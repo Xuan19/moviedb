@@ -31,8 +31,8 @@
       <td>{{genre.updatedAt is not null ? genre.updatedAt|date('Y-m-d H:i')}}</td>
       <td>
       <a href="{{path('admin_genre_edit',{'id':genre.id})}}">Modifier</a>
-      -
-      <a href="{{path('admin_genre_delete',{'id':genre.id})}}">Supprimer</a>
+      {# -
+      <a href="{{path('admin_genre_delete',{'id':genre.id})}}">Supprimer</a> #}
       </td>
     </tr>
           
