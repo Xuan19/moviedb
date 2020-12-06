@@ -1,0 +1,25 @@
+{% extends "admin/base.html.twig" %}
+
+{% block body %}
+
+	{{form_start(form)}}
+
+	{{form_row(form)}}
+
+	<button type="submit" class="btn btn-primary">Modifier</button>
+
+	{{form_end(form)}}
+
+
+	{# {{form_start(formDelete,{
+	    'action': path('admin_genre_delete',{'id':form.vars.data.id}),
+	    'method':'delete'
+	}) }} #}
+
+	{{form_start(formDelete)}}
+
+	{{form_widget(formDelete.deleteButton,{'attr':{'class':'btn-link'}}) }}
+
+	{{form_end(formDelete)}}
+
+{% endblock %}
