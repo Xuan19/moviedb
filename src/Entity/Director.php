@@ -10,5 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Director extends Employment
 {
+
+    public function __toString()
+    {
+        return $this->getPerson()->getName();
+    }
+
   
 }

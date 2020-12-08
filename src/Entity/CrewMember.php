@@ -16,6 +16,11 @@ class CrewMember extends Employment
      */
     private $job;
 
+    public function __toString()
+    {
+        return $this->getPerson()->getName();
+    }
+
     public function getJob(): ?Job
     {
         return $this->job;

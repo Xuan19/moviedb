@@ -1,0 +1,31 @@
+easy_admin:
+    site_name: 'MovieDb'
+    design:
+        menu:
+            - Genre
+            - Movie
+        brand_color: '#3f0e40'
+
+    entities:
+        Movie:
+            class: App\Entity\Movie
+            list:
+                fields:
+                    - id
+                    - title
+
+            form:
+                fields:
+                    - title
+                    - genres
+
+        Genre:
+            class: App\Entity\Genre
+
+      #  - App\Entity\Movie
+      #  - App\Entity\Person
+      #  - App\Entity\Job
+      #  - App\Entity\Department
+      #  - App\Entity\Actor
+      #  - App\Entity\Director
+      #  - App\Entity\CrewMember

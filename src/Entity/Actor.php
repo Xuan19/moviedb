@@ -21,6 +21,12 @@ class Actor extends Employment
      */
     private $creditOrder;
 
+    public function __toString()
+    {
+        return $this->role .'('.$this->getPerson()->getName() .')';
+    }
+
+
     public function getRole(): ?string
     {
         return $this->role;
