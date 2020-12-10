@@ -37,6 +37,9 @@ class MovieController extends AbstractController
 
     public function edit(Movie $movie, Request $request): Response
     {
+
+        $this->denyAccessUnlessGranted('EDIT', $movie);
+        
         $form=$this->createForm(MovieType::class,$movie);
 
         $form->handleRequest($request);

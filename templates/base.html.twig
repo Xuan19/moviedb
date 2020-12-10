@@ -24,7 +24,8 @@
 							</a>
 						</li>
 
-						{% if 'ROLE_ADMIN' in app.user.roles | default ([])%}
+						{# {% if 'ROLE_ADMIN' in app.user.roles | default ([])%} #}
+						{% if is_granted('ROLE_ADMIN')%}
 
 							<li class="nav-item">
 								<a class="nav-link" href="{{path('admin_movie_browse')}}">Admin</a>
@@ -36,7 +37,8 @@
 						{% if app.user is null %}
 							Visiteur
 
-						{% elseif 'ROLE_ADMIN' in app.user.roles %}
+						{# {% elseif 'ROLE_ADMIN' in app.user.roles %} #}
+						{% elseif is_granted('ROLE_ADMIN')%}
 							Administrateur
 
 						{% else %}
