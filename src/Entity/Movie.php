@@ -44,6 +44,11 @@ class Movie
      */
     private $employments;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->genres = new ArrayCollection();
@@ -136,6 +141,42 @@ class Movie
         return $this->employments;
     }
 
+    public function getActors(){
+
+        $list=[];
+        foreach($this->employments as $employment){
+            if ($employment instanceof Actor){
+                $list[]=$employment;
+            }
+        }
+
+        return $list;
+    }
+
+    public function getCrewMembers(){
+
+        $list=[];
+        foreach($this->employments as $employment){
+            if ($employment instanceof CrewMember){
+                $list[]=$employment;
+            }
+        }
+
+        return $list;
+    }
+
+    public function getDirectors(){
+
+        $list=[];
+        foreach($this->employments as $employment){
+            if ($employment instanceof Director){
+                $list[]=$employment;
+            }
+        }
+
+        return $list;
+    }
+
     public function addEmployment(Employment $employment): self
     {
         if (!$this->employments->contains($employment)) {
@@ -154,6 +195,18 @@ class Movie
                 $employment->setMovie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

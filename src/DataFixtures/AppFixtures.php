@@ -2,24 +2,42 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Casting;
+//use App\Entity\Casting;
 use App\Entity\Genre;
 use App\Entity\Movie;
 use App\Entity\Person;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
+
 {
+       private $passwordEncoder;
+
+       public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+       {
+           $this->passwordEncoder=$passwordEncoder;
+       }
+
+
+
     public function load(ObjectManager $em)
     {
+        $user=new User();
+        $user->setEmail('coucou@yahoo.com');
+        $user->setRoles(['ROLE_ADMIN']);
+        $user->setPassword($this->passwordEncoder->encodePassword('cat',$user));
+        
+        
         // $product = new Product();
         // $manager->persist($product);
 
         $genres=[];
         $persons=[];
         $movies=[];
-        $castings=[];
+        //$castings=[];
         
         //Commencer par créer des Genres
         $genre = new Genre();
@@ -64,75 +82,75 @@ class AppFixtures extends Fixture
         $movies[]=$movie;
 
 
-        $casting=new Casting();
-        $casting->setRole('Néarque');
-        $casting->setCreditOrder(mt_rand(1,42));
-        $em->persist($casting);
-        $castings[]=$casting;
+        // $casting=new Casting();
+        // $casting->setRole('Néarque');
+        // $casting->setCreditOrder(mt_rand(1,42));
+        // $em->persist($casting);
+        // $castings[]=$casting;
 
         
 
-        $casting=new Casting();
-        $casting->setRole('E.T');
-        $casting->setCreditOrder(mt_rand(1,42));
-        $em->persist($casting);
-        $castings[]=$casting;
+        // $casting=new Casting();
+        // $casting->setRole('E.T');
+        // $casting->setCreditOrder(mt_rand(1,42));
+        // $em->persist($casting);
+        // $castings[]=$casting;
 
         
 
-        $casting=new Casting();
-        $casting->setRole('Bilbo');
-        $casting->setCreditOrder(mt_rand(1,42));
-        $em->persist($casting);
-        $castings[]=$casting;
+        // $casting=new Casting();
+        // $casting->setRole('Bilbo');
+        // $casting->setCreditOrder(mt_rand(1,42));
+        // $em->persist($casting);
+        // $castings[]=$casting;
 
         
 
-        $casting=new Casting();
-        $casting->setRole('Freddy');
-        $casting->setCreditOrder(mt_rand(1,42));
-        $em->persist($casting);
-        $castings[]=$casting;
+        // $casting=new Casting();
+        // $casting->setRole('Freddy');
+        // $casting->setCreditOrder(mt_rand(1,42));
+        // $em->persist($casting);
+        // $castings[]=$casting;
 
         
 
-        $casting=new Casting();
-        $casting->setRole('Alex');
-        $casting->setCreditOrder(mt_rand(1,42));
-        $em->persist($casting);
-        $castings[]=$casting;
+        // $casting=new Casting();
+        // $casting->setRole('Alex');
+        // $casting->setCreditOrder(mt_rand(1,42));
+        // $em->persist($casting);
+        // $castings[]=$casting;
 
         
 
-        $casting=new Casting();
-        $casting->setRole('Obi-Wan');
-        $casting->setCreditOrder(mt_rand(1,42));
-        $em->persist($casting);
-        $castings[]=$casting;
+        // $casting=new Casting();
+        // $casting->setRole('Obi-Wan');
+        // $casting->setCreditOrder(mt_rand(1,42));
+        // $em->persist($casting);
+        // $castings[]=$casting;
 
         
 
-        $casting=new Casting();
-        $casting->setRole('John');
-        $casting->setCreditOrder(mt_rand(1,42));
-        $em->persist($casting);
-        $castings[]=$casting;
+        // $casting=new Casting();
+        // $casting->setRole('John');
+        // $casting->setCreditOrder(mt_rand(1,42));
+        // $em->persist($casting);
+        // $castings[]=$casting;
 
         
 
-        $casting=new Casting();
-        $casting->setRole('Artour Cuillère');
-        $casting->setCreditOrder(mt_rand(1,42));
-        $em->persist($casting);
-        $castings[]=$casting;
+        // $casting=new Casting();
+        // $casting->setRole('Artour Cuillère');
+        // $casting->setCreditOrder(mt_rand(1,42));
+        // $em->persist($casting);
+        // $castings[]=$casting;
 
         
 
-        $casting=new Casting();
-        $casting->setRole('Jack Gray');
-        $casting->setCreditOrder(mt_rand(1,42));
-        $em->persist($casting);
-        $castings[]=$casting;
+        // $casting=new Casting();
+        // $casting->setRole('Jack Gray');
+        // $casting->setCreditOrder(mt_rand(1,42));
+        // $em->persist($casting);
+        // $castings[]=$casting;
 
         
         foreach($movies as $currentMovie){
@@ -144,14 +162,14 @@ class AppFixtures extends Fixture
         $currentMovie->addGenre($genres[1]);
 
         
-        foreach($castings as $currentCasting){
+        // foreach($castings as $currentCasting){
 
-            shuffle($persons);
-            shuffle($movies);
+        //     shuffle($persons);
+        //     shuffle($movies);
 
-            $currentCasting->setPerson($persons[0]);
-            $currentCasting->setMovie($movies[0]);
-        }
+        //     $currentCasting->setPerson($persons[0]);
+        //     $currentCasting->setMovie($movies[0]);
+        // }
 
         $em->flush();
     }

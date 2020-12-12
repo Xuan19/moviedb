@@ -7,14 +7,40 @@
 
 	<div class="row">
 		<div class="col-6">
-			<h2>Casting</h2>
+
+			<h2>Personnel</h2>
 			<ul>
-				{% for casting in movie.castings %}
+				{% for cm in movie.crewMembers %}
+
+				    {# {{dump(cm)}} #}
+					<li>{{cm.person.name}}{{cm.job.name}}</li>
+
+				{% endfor %}
+
+			</ul>
+
+			<h2>Réalisateur</h2>
+			<ul>
+				{% for director in movie.directors %}
+
+				    {# {{dump(director)}} #}
+					<li>{{director.person.name}}</li>
+
+				{% endfor %}
+
+			</ul>
+
+			<h2>Acteur</h2>
+			<ul>
+				{% for casting in movie.actors %}
+
+				    {# {{dump(casting)}} #}
 					<li>{{casting.role}}({{casting.person.name}})</li>
 
 				{% endfor %}
 
 			</ul>
+
 
 		</div>
 

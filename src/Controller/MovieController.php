@@ -20,12 +20,22 @@ class MovieController extends AbstractController
         ]);
     }
 
-
-     /**
+    /**
      * @Route("/movie/{id}", name="movie_read",requirements={"id":"\d+"})
      */
+    public function readId(Movie $movie, MovieRepository $movieRepository): Response
+    {
+        return $this->redirectToRoute('movie_read_slug', [
+            'slug'=>$movie->getSlug(),
+        ]);
+    }
 
-    public function read(int $id,MovieRepository $movieRepository): Response
+
+     /**
+     * @Route("/movie/{slug}", name="movie_read_slug")
+     */
+
+    public function read(Movie $movie, MovieRepository $movieRepository): Response
     {
         // $em=$this->getDoctrine()->getManager();
 
@@ -52,7 +62,7 @@ class MovieController extends AbstractController
         // $movie=$qb->getQuery()->getOneOrNullResult();
 
         
-        $movie= $movieRepository->getMovieWithRelations($id);
+        //$movie= $movieRepository->getMovieWithRelations($id);
 
         // dd($movie);
         

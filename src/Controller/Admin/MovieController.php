@@ -6,6 +6,7 @@ use App\Entity\Movie;
 use App\Form\DeleteType;
 use App\Form\MovieType;
 use App\Repository\MovieRepository;
+use App\Services\Slugger;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -19,6 +20,13 @@ use Symfony\Component\Routing\Annotation\Route;
      */
 class MovieController extends AbstractController
 {
+
+    // private $slugger;
+
+    // public function __construct(Slugger $slugger)
+    // {
+    //     $this->slugger=$slugger;
+    // }
     /**
      * @Route("/", name="browse")
      */
@@ -35,16 +43,20 @@ class MovieController extends AbstractController
      * @Route("/edit/{id}", name="edit", requirements={"id":"\d+"})
      */
 
-    public function edit(Movie $movie, Request $request): Response
+    public function edit(Movie $movie, Request $request,Slugger $slugger): Response
     {
 
-        $this->denyAccessUnlessGranted('EDIT', $movie);
+        //$this->denyAccessUnlessGranted('EDIT', $movie);
         
         $form=$this->createForm(MovieType::class,$movie);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+            //dd($this->slugger->slugify($movie->getTitle()));
+            //dd($slugger->slugify($movie->getTitle()));
+            $movie->setSlug($slugger->slugify($movie->getTitle()));
 
             $movie->setUpdatedAt(new \DateTime());
 
@@ -80,7 +92,7 @@ class MovieController extends AbstractController
      * @Route("/add", name="add")
      */
 
-    public function add(Request $request): Response
+    public function add(Request $request,Slugger $slugger): Response
     {
         $movie=new Movie();
 
@@ -89,6 +101,8 @@ class MovieController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+            $movie->setSlug($slugger->slugify($movie->getTitle()));
 
             $em=$this->getDoctrine()->getManager();
             $em->persist($movie);

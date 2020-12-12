@@ -14,7 +14,7 @@
 <div class="card col-4">
   <div class="card-body">
     <h5 class="card-title">{{movie.title}}</h5>
-    <a href="{{path('movie_read',{'id':movie.id})}}" class="card-link">Voir la fiche</a>
+    <a href="{{path('movie_read_slug',{'slug':movie.slug})}}" class="card-link">Voir la fiche</a>
   </div>
 </div>
 {% endfor %}

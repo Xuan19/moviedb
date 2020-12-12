@@ -12,7 +12,7 @@ class MovieVoter extends Voter
     {
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
-        return in_array($attribute, ['POST_EDIT', 'POST_VIEW','DELETE'])
+        return in_array($attribute, ['EDIT', 'VIEW','DELETE'])
             && $subject instanceof \App\Entity\Movie;
     }
 
@@ -26,19 +26,29 @@ class MovieVoter extends Voter
 
         // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
-            case 'EDIT':
-                // logic to determine if the user can EDIT
-                // return true or false
-                break;
-            case 'VIEW':
-                // logic to determine if the user can VIEW
-                // return true or false
-                break;
+            // case 'EDIT':
+            //     // logic to determine if the user can EDIT
+            //     // return true or false
+            //     break;
+            // case 'VIEW':
+            //     // logic to determine if the user can VIEW
+            //     // return true or false
+            //     break;
 
+            // case 'DELETE':
+            //     // logic to determine if the user can VIEW
+            //     // return true or false
+            //     break;
+            case 'VIEW':
+            case 'EDIT':
             case 'DELETE':
-                // logic to determine if the user can VIEW
-                // return true or false
-                break;
+                 if($subject->getAuthor()==$user){
+                     return true;
+                 }
+                 if(in_array('ROLE_ADMIN',$user->getRoles())){
+                     return true;
+                 }
+                 break;
         }
 
         return false;

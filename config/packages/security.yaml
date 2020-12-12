@@ -38,7 +38,7 @@ security:
         # - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/admin, roles: ROLE_ADMIN}
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/(add|edit|delete), roles: ROLE_ADMIN}
+        # - { path: ^/(add|edit|delete), roles: ROLE_ADMIN}
         - { path: ^/\w+, roles: ROLE_USER}
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/movie, roles: ROLE_USER}
