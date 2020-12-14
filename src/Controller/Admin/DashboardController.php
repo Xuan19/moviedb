@@ -4,6 +4,10 @@ namespace App\Controller\Admin;
 
 use App\Entity\Genre;
 use App\Entity\Movie;
+use App\Entity\Person;
+use App\Entity\Department;
+use App\Entity\User;
+use App\Entity\Job;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -50,5 +54,9 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToCrud('Genre', 'fas fa-folder-open', Genre::class);
         yield MenuItem::linkToCrud('Movie', 'fas fa-folder-open', Movie::class);
+        yield MenuItem::linkToCrud('Person', 'fas fa-folder-open', Person::class);
+        yield MenuItem::linkToCrud('User', 'fas fa-folder-open', User::class);
+        yield MenuItem::linkToCrud('Department', 'fas fa-folder-open', Department::class);
+        yield MenuItem::linkToCrud('Job', 'fas fa-folder-open', Job::class);
     }
 }

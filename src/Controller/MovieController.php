@@ -15,6 +15,9 @@ class MovieController extends AbstractController
      */
     public function browse(MovieRepository $movieRepository): Response
     {
+
+        dd($this->getParameter('app.project_name'));
+
         return $this->render('movie/browse.html.twig', [
             'movies' => $movieRepository->findAll(),
         ]);

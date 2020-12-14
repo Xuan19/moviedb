@@ -20,6 +20,11 @@
 
     {{ form_widget(form.roles) }}
     {{ form_widget(form.password) }}
+
+    {% if form.cgu is defined %}
+        {{form_widget(form.cgu)}}
+    {% endif %}
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 

@@ -42,7 +42,7 @@ class GenreController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
 
-            $genre->setUpdatedAt(new \DateTime());
+            //$genre->setUpdatedAt(new \DateTime());
 
             $em=$this->getDoctrine()->getManager();
 

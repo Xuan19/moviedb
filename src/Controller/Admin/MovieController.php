@@ -58,7 +58,7 @@ class MovieController extends AbstractController
             //dd($slugger->slugify($movie->getTitle()));
             $movie->setSlug($slugger->slugify($movie->getTitle()));
 
-            $movie->setUpdatedAt(new \DateTime());
+            // $movie->setUpdatedAt(new \DateTime());
 
             $em=$this->getDoctrine()->getManager();
 

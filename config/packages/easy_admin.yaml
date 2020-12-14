@@ -2,8 +2,9 @@ easy_admin:
     site_name: 'MovieDb'
     design:
         menu:
-            - Genre
             - Movie
+            - Genre
+
         brand_color: '#3f0e40'
 
     entities:
@@ -21,6 +22,14 @@ easy_admin:
 
         Genre:
             class: App\Entity\Genre
+        Job:
+            class: App\Entity\Job
+        Department:
+            class: App\Entity\Department
+        Person:
+            class: App\Entity\Person
+        User:
+            class: App\Entity\User
 
       #  - App\Entity\Movie
       #  - App\Entity\Person

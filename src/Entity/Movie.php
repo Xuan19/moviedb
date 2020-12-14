@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=MovieRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Movie
 {
@@ -209,5 +210,15 @@ class Movie
         $this->slug = $slug;
 
         return $this;
+    }
+
+
+    /**
+     * @ORM\PreUpdate
+     */
+
+    public function onPreUpdate()
+    {
+       $this->updatedAt=new \DateTime();
     }
 }

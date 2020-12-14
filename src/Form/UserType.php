@@ -4,10 +4,13 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -48,6 +51,41 @@ class UserType extends AbstractType
                      new Assert\Length(['min' => 2,])
                  ]
             ])
+
+            ->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event){
+
+                //dd($event);
+              $form=$event->getForm();
+              $user=$event->getData();
+
+              if($user->getId()===null){
+                  $form->add('cgu', CheckboxType::class, [
+                      'label'=>'J\'accepte les CGU',
+                      'required'=>true,
+                      'mapped'=>false,
+                  ]);
+
+                  $form->remove('password')
+
+                  ->add('password',RepeatedType::class,[
+                    'type'=>PasswordType::class,
+                    'mapped'=>false,
+                    'required'=>true,
+                    'first_options'  => ['label' => 'Mot de passe'],
+                    'second_options' => ['label' => 'Retapez le mot de passe'],
+                    'constraints' => [
+                        new Assert\NotBlank([
+                            'allowNull'=>true,
+                            'normalizer'=>'trim',
+                        ]),
+                        new Assert\Length(['min' => 2,])
+                    ]
+               ]);
+                
+              }
+
+
+            })
         ;
     }
 
