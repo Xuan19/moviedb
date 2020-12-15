@@ -16,7 +16,5 @@ class  UpdatedAtSetter{
             $entity->setUpdatedAt(new \DateTime());
         }
 
-
-
     }
 }
