@@ -6,6 +6,7 @@ use App\Repository\MovieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=MovieRepository::class)
@@ -62,10 +63,18 @@ class Movie
         return $this->title;
     }
 
+    /**
+     * @Groups({"movie_browse","movie_read"})
+     */
+
     public function getId(): ?int
     {
         return $this->id;
     }
+
+    /**
+     * @Groups({"movie_browse","movie_read"})
+     */
 
     public function getTitle(): ?string
     {
@@ -79,6 +88,11 @@ class Movie
         return $this;
     }
 
+
+    /**
+     * @Groups({"movie_browse","movie_read"})
+     */
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -90,6 +104,11 @@ class Movie
 
         return $this;
     }
+
+
+    /**
+     * @Groups({"movie_browse","movie_read"})
+     */
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {
@@ -104,6 +123,7 @@ class Movie
     }
 
     /**
+     * @Groups("movie_read")
      * @return Collection|Genre[]
      */
     public function getGenres(): Collection
@@ -199,6 +219,11 @@ class Movie
 
         return $this;
     }
+
+
+     /**
+     * @Groups({"movie_browse","movie_read"})
+     */
 
     public function getSlug(): ?string
     {

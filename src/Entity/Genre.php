@@ -6,6 +6,7 @@ use App\Repository\GenreRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=GenreRepository::class)
@@ -50,12 +51,17 @@ class Genre
         return $this->name;
     }
 
-
+    /**
+     * @Groups("movie_read")
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Groups("movie_read")
+     */
     public function getName(): ?string
     {
         return $this->name;
