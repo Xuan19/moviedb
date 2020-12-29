@@ -28,7 +28,7 @@ class MovieController extends AbstractController
     //     $this->slugger=$slugger;
     // }
     /**
-     * @Route("/", name="browse")
+     * @Route("", name="browse")
      */
     public function browse(MovieRepository $movieRepository): Response
     {

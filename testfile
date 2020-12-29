@@ -1,0 +1,1091 @@
+PHPUnit 7.5.20 by Sebastian Bergmann and contributors.
+
+Testing Project Test Suite
+
+Other deprecation notices (1)
+
+  1x: Since symfony/monolog-bridge 5.2: Passing an actionLevel (int|string) as constructor's 3rd argument of "Symfony\Bridge\Monolog\Handler\FingersCrossed\HttpCodeActivationStrategy" is deprecated, "Monolog\Handler\FingersCrossed\ActivationStrategyInterface" expected.
+    1x in MovieControllerTest::testSomething from App\Tests\Controller
+
+MovieControllerTest.php on line 15:
+Symfony\Bundle\FrameworkBundle\KernelBrowser {#402
+  -hasPerformedRequest: true
+  -profiler: false
+  -reboot: true
+  #kernel: App\Kernel {#31
+    #bundles: array:14 [
+      "FrameworkBundle" => Symfony\Bundle\FrameworkBundle\FrameworkBundle {#36
+        #name: "FrameworkBundle"
+        #extension: null
+        #path: null
+        -namespace: "Symfony\Bundle\FrameworkBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "SensioFrameworkExtraBundle" => Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle {#54
+        #name: "SensioFrameworkExtraBundle"
+        #extension: null
+        #path: null
+        -namespace: "Sensio\Bundle\FrameworkExtraBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "DoctrineBundle" => Doctrine\Bundle\DoctrineBundle\DoctrineBundle {#55
+        -autoloader: Closure($className) {#74
+          class: "Doctrine\Common\Proxy\Autoloader"
+          use: {
+            $proxyDir: "/var/www/html/symfo/moviedb/var/cache/test/doctrine/orm/Proxies"
+            $proxyNamespace: "Proxies"
+            $notFoundCallback: Closure($proxyDir, $proxyNamespace, $class): void {#340 …}
+          }
+        }
+        #name: "DoctrineBundle"
+        #extension: null
+        #path: null
+        -namespace: "Doctrine\Bundle\DoctrineBundle"
+        #container: & ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "DoctrineMigrationsBundle" => Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle {#53
+        #name: "DoctrineMigrationsBundle"
+        #extension: null
+        #path: null
+        -namespace: "Doctrine\Bundle\MigrationsBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "SecurityBundle" => Symfony\Bundle\SecurityBundle\SecurityBundle {#52
+        #name: "SecurityBundle"
+        #extension: null
+        #path: null
+        -namespace: "Symfony\Bundle\SecurityBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "TwigBundle" => Symfony\Bundle\TwigBundle\TwigBundle {#51
+        #name: "TwigBundle"
+        #extension: null
+        #path: null
+        -namespace: "Symfony\Bundle\TwigBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "TwigExtraBundle" => Twig\Extra\TwigExtraBundle\TwigExtraBundle {#50
+        #name: "TwigExtraBundle"
+        #extension: null
+        #path: null
+        -namespace: "Twig\Extra\TwigExtraBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "WebProfilerBundle" => Symfony\Bundle\WebProfilerBundle\WebProfilerBundle {#49
+        #name: "WebProfilerBundle"
+        #extension: null
+        #path: null
+        -namespace: "Symfony\Bundle\WebProfilerBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "MonologBundle" => Symfony\Bundle\MonologBundle\MonologBundle {#48
+        #name: "MonologBundle"
+        #extension: null
+        #path: null
+        -namespace: "Symfony\Bundle\MonologBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "DebugBundle" => Symfony\Bundle\DebugBundle\DebugBundle {#430
+        #name: "DebugBundle"
+        #extension: null
+        #path: null
+        -namespace: "Symfony\Bundle\DebugBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "DoctrineFixturesBundle" => Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle {#58
+        #name: "DoctrineFixturesBundle"
+        #extension: null
+        #path: null
+        -namespace: "Doctrine\Bundle\FixturesBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "NelmioAliceBundle" => Nelmio\Alice\Bridge\Symfony\NelmioAliceBundle {#45
+        #name: "NelmioAliceBundle"
+        #extension: null
+        #path: null
+        -namespace: "Nelmio\Alice\Bridge\Symfony"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "EasyAdminBundle" => EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle {#46
+        #name: "EasyAdminBundle"
+        #extension: null
+        #path: null
+        -namespace: "EasyCorp\Bundle\EasyAdminBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+      "LexikJWTAuthenticationBundle" => Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle {#44
+        #name: "LexikJWTAuthenticationBundle"
+        #extension: null
+        #path: null
+        -namespace: "Lexik\Bundle\JWTAuthenticationBundle"
+        #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+      }
+    ]
+    #container: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+    #environment: "test"
+    #debug: true
+    #booted: true
+    #startTime: 1608159196.4382
+    -projectDir: "/var/www/html/symfo/moviedb"
+    -warmupDir: null
+    -requestStackSize: 0
+    -resetServices: true
+  }
+  -catchExceptions: true
+  #history: Symfony\Component\BrowserKit\History {#404
+    #stack: array:1 [
+      0 => Symfony\Component\BrowserKit\Request {#421
+        #uri: "http://localhost/"
+        #method: "GET"
+        #parameters: []
+        #files: []
+        #cookies: []
+        #server: array:3 [
+          "HTTP_USER_AGENT" => "Symfony BrowserKit"
+          "HTTP_HOST" => "localhost"
+          "HTTPS" => false
+        ]
+        #content: null
+      }
+    ]
+    #position: 0
+  }
+  #cookieJar: Symfony\Component\BrowserKit\CookieJar {#405
+    #cookieJar: []
+  }
+  #server: array:1 [
+    "HTTP_USER_AGENT" => "Symfony BrowserKit"
+  ]
+  #internalRequest: Symfony\Component\BrowserKit\Request {#406
+    #uri: "http://localhost/"
+    #method: "GET"
+    #parameters: []
+    #files: []
+    #cookies: []
+    #server: array:3 [
+      "HTTP_USER_AGENT" => "Symfony BrowserKit"
+      "HTTP_HOST" => "localhost"
+      "HTTPS" => false
+    ]
+    #content: null
+  }
+  #request: Symfony\Component\HttpFoundation\Request {#414
+    +attributes: Symfony\Component\HttpFoundation\ParameterBag {#411
+      #parameters: array:4 [
+        "_route" => "movie_browse"
+        "_controller" => "App\Controller\MovieController::browse"
+        "_route_params" => []
+        "_firewall_context" => "security.firewall.map.context.main"
+      ]
+    }
+    +request: Symfony\Component\HttpFoundation\ParameterBag {#413
+      #parameters: []
+    }
+    +query: Symfony\Component\HttpFoundation\InputBag {#412
+      #parameters: []
+    }
+    +server: Symfony\Component\HttpFoundation\ServerBag {#408
+      #parameters: array:16 [
+        "SERVER_NAME" => "localhost"
+        "SERVER_PORT" => 80
+        "HTTP_HOST" => "localhost"
+        "HTTP_USER_AGENT" => "Symfony BrowserKit"
+        "HTTP_ACCEPT" => "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+        "HTTP_ACCEPT_LANGUAGE" => "en-us,en;q=0.5"
+        "HTTP_ACCEPT_CHARSET" => "ISO-8859-1,utf-8;q=0.7,*;q=0.7"
+        "REMOTE_ADDR" => "127.0.0.1"
+        "SCRIPT_NAME" => ""
+        "SCRIPT_FILENAME" => ""
+        "SERVER_PROTOCOL" => "HTTP/1.1"
+        "REQUEST_TIME" => 1608159196
+        "PATH_INFO" => ""
+        "REQUEST_METHOD" => "GET"
+        "REQUEST_URI" => "/"
+        "QUERY_STRING" => ""
+      ]
+    }
+    +files: Symfony\Component\HttpFoundation\FileBag {#409
+      #parameters: []
+    }
+    +cookies: Symfony\Component\HttpFoundation\InputBag {#410
+      #parameters: []
+    }
+    +headers: Symfony\Component\HttpFoundation\HeaderBag {#407
+      #headers: array:5 [
+        "host" => array:1 [
+          0 => "localhost"
+        ]
+        "user-agent" => array:1 [
+          0 => "Symfony BrowserKit"
+        ]
+        "accept-language" => array:1 [
+          0 => "en-us,en;q=0.5"
+        ]
+        "accept-charset" => array:1 [
+          0 => "ISO-8859-1,utf-8;q=0.7,*;q=0.7"
+        ]
+        "x-php-ob-level" => array:1 [
+          0 => "1"
+        ]
+      ]
+      #cacheControl: []
+    }
+    #content: null
+    #languages: null
+    #charsets: null
+    #encodings: null
+    #acceptableContentTypes: null
+    #pathInfo: "/"
+    #requestUri: "/"
+    #baseUrl: ""
+    #basePath: null
+    #method: "GET"
+    #format: null
+    #session: Symfony\Component\HttpFoundation\Session\Session {#302
+      #storage: Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage {#312
+        -savePath: "/var/www/html/symfo/moviedb/var/cache/test/sessions"
+        #id: ""
+        #name: "MOCKSESSID"
+        #started: false
+        #closed: false
+        #data: []
+        #metadataBag: Symfony\Component\HttpFoundation\Session\Storage\MetadataBag {#326
+          -name: "__metadata"
+          -storageKey: "_sf2_meta"
+          #meta: array:3 [
+            "c" => 0
+            "u" => 0
+            "l" => 0
+          ]
+          -lastUsed: null
+          -updateThreshold: 0
+        }
+        #bags: array:2 [
+          "attributes" => Symfony\Component\HttpFoundation\Session\SessionBagProxy {#285
+            -bag: Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag {#305
+              -name: "attributes"
+              -storageKey: "_sf2_attributes"
+              #attributes: []
+            }
+            -data: &3 []
+            -usageIndex: &4 2
+            -usageReporter: array:2 [
+              0 => Symfony\Component\HttpKernel\EventListener\SessionListener {#363
+                #container: Symfony\Component\DependencyInjection\Argument\ServiceLocator {#59
+                  -factory: Symfony\Component\DependencyInjection\Container::getService($registry, string $id, ?string $method, $load) {#25
+                    this: ContainerCUjETRy\App_KernelTestDebugContainer {#56 …20}
+                  }
+                  -serviceMap: array:6 [
+                    "initialized_session" => array:4 [
+                      0 => "services"
+                      1 => "session"
+                      2 => null
+                      3 => true
+                    ]
+                    "logger" => array:4 [
+                      0 => "privates"
+                      1 => "monolog.logger"
+                      2 => "getMonolog_LoggerService"
+                      3 => false
+                    ]
+                    "request_stack" => array:4 [
+                      0 => "services"
+                      1 => "request_stack"
+                      2 => "getRequestStackService"
+                      3 => false
+                    ]
+                    "session" => array:4 [
+                      0 => "services"
+                      1 => "session"
+                      2 => "getSessionService"
+                      3 => true
+                    ]
+                    "session_collector" => array:4 [
+                      0 => "privates"
+                      1 => "data_collector.request.session_collector"
+                      2 => "getDataCollector_Request_SessionCollectorService"
+                      3 => true
+                    ]
+                    "session_storage" => array:4 [
+                      0 => "privates"
+                      1 => "session.storage.mock_file"
+                      2 => "getSession_Storage_MockFileService"
+                      3 => true
+                    ]
+                  ]
+                  -serviceTypes: array:6 [
+                    "initialized_session" => "?"
+                    "logger" => "?"
+                    "request_stack" => "?"
+                    "session" => "?"
+                    "session_collector" => "?"
+                    "session_storage" => "?"
+                  ]
+                  -externalId: null
+                  -container: null
+                  -factories: array:6 [
+                    "initialized_session" => array:4 [
+                      0 => "services"
+                      1 => "session"
+                      2 => null
+                      3 => true
+                    ]
+                    "logger" => array:4 [
+                      0 => "privates"
+                      1 => "monolog.logger"
+                      2 => "getMonolog_LoggerService"
+                      3 => false
+                    ]
+                    "request_stack" => array:4 [
+                      0 => "services"
+                      1 => "request_stack"
+                      2 => "getRequestStackService"
+                      3 => false
+                    ]
+                    "session" => array:4 [
+                      0 => "services"
+                      1 => "session"
+                      2 => "getSessionService"
+                      3 => true
+                    ]
+                    "session_collector" => array:4 [
+                      0 => "privates"
+                      1 => "data_collector.request.session_collector"
+                      2 => "getDataCollector_Request_SessionCollectorService"
+                      3 => true
+                    ]
+                    "session_storage" => array:4 [
+                      0 => "privates"
+                      1 => "session.storage.mock_file"
+                      2 => "getSession_Storage_MockFileService"
+                      3 => true
+                    ]
+                  ]
+                  -loading: []
+                  -providedTypes: null
+                }
+                -sessionUsageStack: []
+                -debug: true
+              }
+              1 => "onSessionUsage"
+            ]
+          }
+          "flashes" => Symfony\Component\HttpFoundation\Session\SessionBagProxy {#339
+            -bag: Symfony\Component\HttpFoundation\Session\Flash\FlashBag {#286
+              -name: "flashes"
+              -flashes: []
+              -storageKey: "_symfony_flashes"
+            }
+            -data: &3 []
+            -usageIndex: &4 2
+            -usageReporter: array:2 [
+              0 => Symfony\Component\HttpKernel\EventListener\SessionListener {#363}
+              1 => "onSessionUsage"
+            ]
+          }
+        ]
+      }
+      -flashName: "flashes"
+      -attributeName: "attributes"
+      -data: &3 []
+      -usageIndex: &4 2
+      -usageReporter: array:2 [
+        0 => Symfony\Component\HttpKernel\EventListener\SessionListener {#363}
+        1 => "onSessionUsage"
+      ]
+    }
+    #locale: null
+    #defaultLocale: "en"
+    -preferredFormat: null
+    -isHostValid: true
+    -isForwardedValid: true
+    -isSafeContentPreferred: null
+    basePath: ""
+    format: "html"
+  }
+  #internalResponse: Symfony\Component\BrowserKit\Response {#520
+    -content: """
+      <!DOCTYPE html>\n
+      <html>\n
+      \t<head>\n
+      \t\t<meta charset="UTF-8">\n
+      \t\t<title>\n
+      \t\t\tHello MovieController!\t\t</title>\n
+      \t\t<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">\n
+      \t     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">\n
+          </head>\n
+      \t<body><div class ="alert alert-danger">Maintenance prévue Sunday 13 December à 12h34</div>\n
+      \t\t<div class="container">\n
+      \t\t\t<nav class="navbar navbar-expand-lg navbar-light bg-light">\n
+      \t\t\t\t<a class="navbar-brand" href="/">MovieDB</a>\n
+      \t\t\t\t<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\n
+      \t\t\t\t\t<span class="navbar-toggler-icon"></span>\n
+      \t\t\t\t</button>\n
+      \n
+      \t\t\t\t<div class="collapse navbar-collapse" id="navbarSupportedContent">\n
+      \t\t\t\t\t<ul class="navbar-nav mr-auto">\n
+      \t\t\t\t\t\t<li class="nav-item">\n
+      \t\t\t\t\t\t\t<a class="nav-link" href="/">Home\n
+      \t\t\t\t\t\t\t</a>\n
+      \t\t\t\t\t\t</li>\n
+      \n
+      \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n
+      \t\t\t\t\t<div>\n
+      \t\t\t\t\t\t<i class="fa fa-user-o" aria-hidden="true"></i>\n
+      \t\t\t\t\t\t\t\t\t\t\t\t\tVisiteur\n
+      \n
+      \t\t\t\t\t\t\t\t\t\t\t\t\n
+      \n
+      \t\t\t\t\t\t\t\t\t\t\t\t\t<a href="/login" class="btn btn-success">Connexion</a>\n
+      \n
+      \t\t\t\t\t\t\t\t\t\t\t</div>\n
+      \t\t\t\t</div>\n
+      \t\t\t</nav>\n
+      \t\t\t<div class="row">\n
+      <h1>MovieDB</h1>\n
+      </div>\n
+      \n
+      <div class="row">\n
+      \n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">natus</h5>\n
+          <a href="/movie/natus" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">vel</h5>\n
+          <a href="/movie/vel" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">ut</h5>\n
+          <a href="/movie/ut" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">occaecati</h5>\n
+          <a href="/movie/occaecati" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">doloremque</h5>\n
+          <a href="/movie/doloremque" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">voluptas</h5>\n
+          <a href="/movie/voluptas" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">dignissimos</h5>\n
+          <a href="/movie/dignissimos" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">est</h5>\n
+          <a href="/movie/est" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">minima</h5>\n
+          <a href="/movie/minima" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">tempore</h5>\n
+          <a href="/movie/tempore" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">quia</h5>\n
+          <a href="/movie/quia" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">qui</h5>\n
+          <a href="/movie/qui" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">voluptatem</h5>\n
+          <a href="/movie/voluptatem" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">atque</h5>\n
+          <a href="/movie/atque" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">excepturi</h5>\n
+          <a href="/movie/excepturi" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">dolorem</h5>\n
+          <a href="/movie/dolorem" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">et</h5>\n
+          <a href="/movie/et" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">voluptatum</h5>\n
+          <a href="/movie/voluptatum" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">aut</h5>\n
+          <a href="/movie/aut" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">suscipit</h5>\n
+          <a href="/movie/suscipit" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+      </div>\n
+      \t\t\t\t\t</div>\n
+      \t</body>\n
+      </html>\n
+      """
+    -status: 200
+    -headers: array:5 [
+      "cache-control" => array:1 [
+        0 => "max-age=0, must-revalidate, private"
+      ]
+      "date" => array:1 [
+        0 => "Wed, 16 Dec 2020 22:53:16 GMT"
+      ]
+      "content-type" => array:1 [
+        0 => "text/html; charset=UTF-8"
+      ]
+      "x-robots-tag" => array:1 [
+        0 => "noindex"
+      ]
+      "expires" => array:1 [
+        0 => "Wed, 16 Dec 2020 22:53:16 GMT"
+      ]
+    ]
+  }
+  #response: Symfony\Component\HttpFoundation\Response {#814
+    +headers: Symfony\Component\HttpFoundation\ResponseHeaderBag {#1097
+      #computedCacheControl: array:3 [
+        "max-age" => "0"
+        "must-revalidate" => true
+        "private" => true
+      ]
+      #cookies: []
+      #headerNames: array:5 [
+        "cache-control" => "Cache-Control"
+        "date" => "Date"
+        "content-type" => "Content-Type"
+        "x-robots-tag" => "X-Robots-Tag"
+        "expires" => "Expires"
+      ]
+      #headers: array:5 [
+        "cache-control" => array:1 [
+          0 => "max-age=0, must-revalidate, private"
+        ]
+        "date" => array:1 [
+          0 => "Wed, 16 Dec 2020 22:53:16 GMT"
+        ]
+        "content-type" => array:1 [
+          0 => "text/html; charset=UTF-8"
+        ]
+        "x-robots-tag" => array:1 [
+          0 => "noindex"
+        ]
+        "expires" => array:1 [
+          0 => "Wed, 16 Dec 2020 22:53:16 GMT"
+        ]
+      ]
+      #cacheControl: array:3 [
+        "max-age" => "0"
+        "must-revalidate" => true
+        "private" => true
+      ]
+    }
+    #content: """
+      <!DOCTYPE html>\n
+      <html>\n
+      \t<head>\n
+      \t\t<meta charset="UTF-8">\n
+      \t\t<title>\n
+      \t\t\tHello MovieController!\t\t</title>\n
+      \t\t<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">\n
+      \t     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">\n
+          </head>\n
+      \t<body><div class ="alert alert-danger">Maintenance prévue Sunday 13 December à 12h34</div>\n
+      \t\t<div class="container">\n
+      \t\t\t<nav class="navbar navbar-expand-lg navbar-light bg-light">\n
+      \t\t\t\t<a class="navbar-brand" href="/">MovieDB</a>\n
+      \t\t\t\t<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\n
+      \t\t\t\t\t<span class="navbar-toggler-icon"></span>\n
+      \t\t\t\t</button>\n
+      \n
+      \t\t\t\t<div class="collapse navbar-collapse" id="navbarSupportedContent">\n
+      \t\t\t\t\t<ul class="navbar-nav mr-auto">\n
+      \t\t\t\t\t\t<li class="nav-item">\n
+      \t\t\t\t\t\t\t<a class="nav-link" href="/">Home\n
+      \t\t\t\t\t\t\t</a>\n
+      \t\t\t\t\t\t</li>\n
+      \n
+      \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n
+      \t\t\t\t\t<div>\n
+      \t\t\t\t\t\t<i class="fa fa-user-o" aria-hidden="true"></i>\n
+      \t\t\t\t\t\t\t\t\t\t\t\t\tVisiteur\n
+      \n
+      \t\t\t\t\t\t\t\t\t\t\t\t\n
+      \n
+      \t\t\t\t\t\t\t\t\t\t\t\t\t<a href="/login" class="btn btn-success">Connexion</a>\n
+      \n
+      \t\t\t\t\t\t\t\t\t\t\t</div>\n
+      \t\t\t\t</div>\n
+      \t\t\t</nav>\n
+      \t\t\t<div class="row">\n
+      <h1>MovieDB</h1>\n
+      </div>\n
+      \n
+      <div class="row">\n
+      \n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">natus</h5>\n
+          <a href="/movie/natus" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">vel</h5>\n
+          <a href="/movie/vel" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">ut</h5>\n
+          <a href="/movie/ut" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">occaecati</h5>\n
+          <a href="/movie/occaecati" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">doloremque</h5>\n
+          <a href="/movie/doloremque" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">voluptas</h5>\n
+          <a href="/movie/voluptas" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">dignissimos</h5>\n
+          <a href="/movie/dignissimos" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">est</h5>\n
+          <a href="/movie/est" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">minima</h5>\n
+          <a href="/movie/minima" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">tempore</h5>\n
+          <a href="/movie/tempore" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">quia</h5>\n
+          <a href="/movie/quia" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">qui</h5>\n
+          <a href="/movie/qui" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">voluptatem</h5>\n
+          <a href="/movie/voluptatem" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">atque</h5>\n
+          <a href="/movie/atque" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">excepturi</h5>\n
+          <a href="/movie/excepturi" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">dolorem</h5>\n
+          <a href="/movie/dolorem" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">et</h5>\n
+          <a href="/movie/et" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">voluptatum</h5>\n
+          <a href="/movie/voluptatum" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">aut</h5>\n
+          <a href="/movie/aut" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+          \n
+      <div class="card col-4">\n
+        <div class="card-body">\n
+          <h5 class="card-title">suscipit</h5>\n
+          <a href="/movie/suscipit" class="card-link">Voir la fiche</a>\n
+        </div>\n
+      </div>\n
+      </div>\n
+      \t\t\t\t\t</div>\n
+      \t</body>\n
+      </html>\n
+      """
+    #version: "1.1"
+    #statusCode: 200
+    #statusText: "OK"
+    #charset: "UTF-8"
+  }
+  #crawler: Symfony\Component\DomCrawler\Crawler {#1200
+    #uri: "http://localhost/"
+    -defaultNamespacePrefix: "default"
+    -namespaces: []
+    -baseHref: "http://localhost/"
+    -document: DOMDocument {#1261
+      +nodeName: "#document"
+      +nodeValue: null
+      +nodeType: XML_HTML_DOCUMENT_NODE
+      +parentNode: null
+      +childNodes: DOMNodeList {#1214
+        +length: 2
+      }
+      +firstChild: DOMDocumentType {#1216 …}
+      +lastChild: DOMElement {#1257 …}
+      +previousSibling: null
+      +nextSibling: null
+      +attributes: null
+      +ownerDocument: null
+      +namespaceURI: null
+      +prefix: ""
+      +localName: null
+      +baseURI: null
+      +textContent: ""
+      +doctype: DOMDocumentType {#1216 …}
+      +implementation: DOMImplementation {#1222
+        Core: "1.0"
+        XML: "2.0"
+      }
+      +documentElement: DOMElement {#1257 …}
+      +actualEncoding: "UTF-8"
+      +encoding: "UTF-8"
+      +xmlEncoding: "UTF-8"
+      +standalone: true
+      +xmlStandalone: true
+      +version: null
+      +xmlVersion: null
+      +strictErrorChecking: true
+      +documentURI: null
+      +config: null
+      +formatOutput: false
+      +validateOnParse: true
+      +resolveExternals: false
+      +preserveWhiteSpace: true
+      +recover: false
+      +substituteEntities: false
+      xml: """
+        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n
+        <!DOCTYPE html>\n
+        <html>\n
+          <head>\n
+            <meta charset="UTF-8"/>\n
+            <title>\n
+        \t\t\tHello MovieController!\t\t</title>\n
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>\n
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous"/>\n
+          </head>\n
+          <body><div class="alert alert-danger">Maintenance prévue Sunday 13 December à 12h34</div>\n
+        \t\t<div class="container">\n
+        \t\t\t<nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="/">MovieDB</a>\n
+        \t\t\t\t<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\n
+        \t\t\t\t\t<span class="navbar-toggler-icon"/>\n
+        \t\t\t\t</button>\n
+        \n
+        \t\t\t\t<div class="collapse navbar-collapse" id="navbarSupportedContent">\n
+        \t\t\t\t\t<ul class="navbar-nav mr-auto"><li class="nav-item">\n
+        \t\t\t\t\t\t\t<a class="nav-link" href="/">Home\n
+        \t\t\t\t\t\t\t</a>\n
+        \t\t\t\t\t\t</li>\n
+        \n
+        \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul><div>\n
+        \t\t\t\t\t\t<i class="fa fa-user-o" aria-hidden="true"/>\n
+        \t\t\t\t\t\t\t\t\t\t\t\t\tVisiteur\n
+        \n
+        \t\t\t\t\t\t\t\t\t\t\t\t\n
+        \n
+        \t\t\t\t\t\t\t\t\t\t\t\t\t<a href="/login" class="btn btn-success">Connexion</a>\n
+        \n
+        \t\t\t\t\t\t\t\t\t\t\t</div>\n
+        \t\t\t\t</div>\n
+        \t\t\t</nav><div class="row">\n
+        <h1>MovieDB</h1>\n
+        </div>\n
+        \n
+        <div class="row">\n
+        \n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">natus</h5>\n
+            <a href="/movie/natus" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">vel</h5>\n
+            <a href="/movie/vel" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">ut</h5>\n
+            <a href="/movie/ut" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">occaecati</h5>\n
+            <a href="/movie/occaecati" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">doloremque</h5>\n
+            <a href="/movie/doloremque" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">voluptas</h5>\n
+            <a href="/movie/voluptas" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">dignissimos</h5>\n
+            <a href="/movie/dignissimos" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">est</h5>\n
+            <a href="/movie/est" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">minima</h5>\n
+            <a href="/movie/minima" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">tempore</h5>\n
+            <a href="/movie/tempore" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">quia</h5>\n
+            <a href="/movie/quia" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">qui</h5>\n
+            <a href="/movie/qui" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">voluptatem</h5>\n
+            <a href="/movie/voluptatem" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">atque</h5>\n
+            <a href="/movie/atque" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">excepturi</h5>\n
+            <a href="/movie/excepturi" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">dolorem</h5>\n
+            <a href="/movie/dolorem" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">et</h5>\n
+            <a href="/movie/et" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">voluptatum</h5>\n
+            <a href="/movie/voluptatum" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">aut</h5>\n
+            <a href="/movie/aut" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+            \n
+        <div class="card col-4">\n
+          <div class="card-body">\n
+            <h5 class="card-title">suscipit</h5>\n
+            <a href="/movie/suscipit" class="card-link">Voir la fiche</a>\n
+          </div>\n
+        </div>\n
+        </div>\n
+        \t\t\t\t\t</div>\n
+        \t</body>\n
+        </html>\n
+        """
+    }
+    -nodes: array:1 [
+      0 => DOMElement {#1257 …}
+    ]
+    -isHtml: true
+    -html5Parser: null
+  }
+  #insulated: false
+  #redirect: null
+  #followRedirects: false
+  #followMetaRefresh: false
+  -maxRedirects: -1
+  -redirectCount: 0
+  -redirects: []
+  -isMainRequest: true
+}
